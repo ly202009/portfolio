@@ -6,6 +6,7 @@ body{
 body *{
   font-family: 'Courier New', Courier, monospace;
   margin: 0px;
+  font-size: large;
 }
 
 .hero{
@@ -43,13 +44,40 @@ body *{
 }
 
 .about{
+  margin-top: 100px;
   display:flex;
   flex-direction: column;
   align-items: center;
 }
 
+.about-header{
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.about-content{
+  display: flex;
+  gap: 100px;
+  margin-left: 250px;
+  margin-right: 250px;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-body{
+  flex-basis: 1;
+  width: 50%;
+}
+
 .about-icons{
   display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: 50%;
+  justify-content: center;
+  flex-basis: 1;
+  gap: 10px;
 }
 
 .about-icon{
@@ -57,9 +85,11 @@ body *{
   justify-content: center;
   align-items: center;
   border: 5px grey solid;
-  border-radius: 10px;
+  border-radius: 1000px;
 }
 
 .about-icon img{
   width: 100px;
+  height: 100px;
+  object-fit: contain;
 }
