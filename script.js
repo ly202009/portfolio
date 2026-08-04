@@ -17,7 +17,7 @@ function calculateCarousel(rotation, icon, total){
 
   const x = Math.sin(localRotation) * container.clientWidth / 2;
 
-  icon.style.transform = `scale(${depthRatio * (maxScale - minScale) + minScale}) translate(-50%, -50%) translate(${x}px, 0px)`;
+  icon.style.transform = `scale(${depthRatio * (maxScale - minScale) + minScale}) translate(-50%, 0) translate(${x}px, 0px)`;
   icon.style.zIndex = Math.floor(depthRatio * 100);
   icon.style.opacity = minOpacity + (maxOpacity - minOpacity) * depthRatio;
 }
