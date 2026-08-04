@@ -58,11 +58,13 @@ body *{
 
 .about-content{
   display: flex;
-  gap: 100px;
-  margin-left: 200px;
-  margin-right: 200px;
+  width: 80%;
+  gap: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .about-body{
@@ -70,31 +72,36 @@ body *{
 }
 
 .about-icons{
-  flex: 1 1 50%;
+  flex: 1 1 40%;
+  min-width: 350px;
+  height: 300px;
+  position: relative;
   display: flex;
-  flex-wrap: nowrap;
-  position: relative;  
+  align-items: center;
 }
 
 .about-icon{
   left: 50%;
-  top: 50%;
   position: absolute;
   background-color: white;
-  flex: 1 1 1%;
   border: 2px grey solid;
   border-radius: 50%;
   overflow: hidden;
+  
+  
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
+  /* width: 15%; */
+  transform-origin: center center;
+  width: clamp(30px, 15%, 80px);
   aspect-ratio: 1;
 }
 
 .about-icon img{
-  width: 90%;
-  height: 90%;
+  position: absolute;
+  width: 70%;
+  height: 70%;
   object-fit: contain;
 }
 
