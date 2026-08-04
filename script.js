@@ -7,7 +7,7 @@ var rotationSpeed = 0.002;
 
 function calculateCarousel(rotation, icon, total){
   // Use carousel rotation and icon position to calculate position of the icon;
-  const localRotation = rotation + 360 * ((icon.style.getPropertyValue("--i"))/total);
+  const localRotation = rotation + 2 * Math.PI * (icon.style.getPropertyValue("--i")/total);
   // Use sin to determine the position between one side to the other within the box as well as cosine for depth
   const depthRatio = (Math.cos(localRotation) + 1)/2;
   const positionRatio = (Math.sin(localRotation) + 1)/2;
