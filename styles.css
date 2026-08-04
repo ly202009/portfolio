@@ -66,32 +66,35 @@ body *{
 }
 
 .about-body{
-  flex-basis: 1;
-  width: 50%;
+  flex: 1 1 50%;
 }
 
 .about-icons{
+  flex: 1 1 50%;
   display: flex;
-  flex-wrap: wrap;
-  flex-shrink: 0;
-  width: 50%;
-  justify-content: center;
-  flex-basis: 1;
-  gap: 10px;
+  flex-wrap: nowrap;
+  position: relative;  
 }
 
 .about-icon{
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  background-color: white;
+  flex: 1 1 1%;
+  border: 2px grey solid;
+  border-radius: 50%;
+  overflow: hidden;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border: 5px grey solid;
-  border-radius: 1000px;
+  justify-content: center;
+  width: 100px;
+  aspect-ratio: 1;
 }
 
 .about-icon img{
-  width: 100px;
-  height: 100px;
-  padding: 10px;
+  width: 90%;
+  height: 90%;
   object-fit: contain;
 }
 
@@ -134,4 +137,10 @@ body *{
   border: 1px solid grey;
   height: 270px;
   object-fit: cover;
+}
+
+footer{
+  text-align: center;
+  font-size: small;
+  color: grey;
 }
