@@ -26,7 +26,7 @@ let rotation = 0; // initial rotation
 const icons = document.querySelectorAll(".about-icon");
 
 function animate(rotation){ // why was this so hard to figure out
-  icons.forEach((icon) => calculateCarousel(rotation, icon, 10));
+  icons.forEach((icon) => calculateCarousel(rotation, icon, icons.length));
   requestAnimationFrame(() => animate(rotation+rotationSpeed));
 }
 
