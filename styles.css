@@ -115,11 +115,11 @@ body *{
 .project{
   margin-top: 50px;
   display: flex;
-  gap: 200px;
   justify-content: space-between;
   width: 70%;
-  margin-left: 10%;
-  margin-right: 10%
+  column-gap: 20%;
+  row-gap: 5%;
+  flex-wrap: wrap;
 }
 
 .project-section-header{
@@ -132,7 +132,9 @@ body *{
   display: flex;
   margin-top: 1%;
   flex-direction: column;
-  gap: 25px;
+  gap: 5%;
+  min-width: 200px;
+  flex: 1 1 25%;
 }
 
 .project-header{
@@ -140,9 +142,10 @@ body *{
 }
 
 .project img{
+  aspect-ratio: 16/9;
+  height: 270px;
   width: 485px;
   border: 1px solid grey;
-  height: 270px;
   object-fit: cover;
 }
 
