@@ -3,6 +3,7 @@ body{
   flex-direction: column;
   margin: 0px;
 }
+
 body *{
   font-family: 'Courier New', Courier, monospace;
   margin: 0px;
@@ -19,10 +20,12 @@ body *{
 
 .hero-text{
   font-size: 70px;
+  text-align: center;
 }
 
 .hero-description{
   font-size: 70px;
+  text-align: center;
 }
 
 .navigation-bar{
@@ -38,7 +41,7 @@ body *{
   list-style-type:none;
   justify-content: right;
   gap: 30px;
-  padding: 10px 200px 10px 200px;
+  padding: 10px 10% 10px 10%;
 }
 
 .nav-options a{
@@ -126,7 +129,7 @@ body *{
   justify-content: space-between;
   width: 70%;
   column-gap: 20%;
-  row-gap: 5%;
+  row-gap: 10px;
   flex-wrap: wrap;
 }
 

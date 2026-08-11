@@ -58,6 +58,7 @@
             <div class="project-text">
                 <div class="project-header">Personal Website</div>
                 <div class="project-body">A personal portfolio website made with JS, HTML, and CSS</div>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/ly202009/portfolio">Github Repository</a>
             </div>
             <img src="assets/web_portfolio.gif">
             
@@ -82,7 +83,24 @@
         </div>
     </div>
     
-    <div id="contact" class="contact">Contact</div>
+    <div id="contact" class="contact">
+        <form action="action_page.php">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="fullname" placeholder="Your full name...">
+
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" placeholder="Your email...">
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write something..." style="height:200px"></textarea>
+
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
     <div id="resume">Resume</div>
     <footer>LiwenYao.ca™ Designed by me</footer>
 </body>
