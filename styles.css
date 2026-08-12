@@ -160,6 +160,46 @@ body *{
   object-fit: cover;
 }
 
+.contact{
+  justify-self: center;
+  margin-top: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 2%;
+  border-radius: 5px;
+  background-color: lightgrey;
+}
+
+.contact-header{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.contact form{
+  display: flex;
+  flex-direction: column;
+}
+
+.contact form > *{
+  font-size: auto;
+  margin-top: 1%;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.contact input[type=submit]{
+  background-color: green;
+  color: white;
+  font-weight: bolder;
+  padding: 10px;
+  align-self: end;
+  text-align: center;
+  width: 100px;
+  border-radius: 10px;
+  text-size-adjust: auto;
+}
+
 footer{
   text-align: center;
   font-size: small;
