@@ -1,9 +1,13 @@
 <html>
 <body>
-  name: <?php echo $_POST["name"];?><br>
-  email: <?php echo $_POST["email"];?><br>
-  subject: <?php echo $_POST["subject"];?><br>
-  message: <?php echo $_POST["message"];?><br>
+  
+  <?php
+  $name = $_POST["name"];
+  $email = $_POST["email"];
+  $subject = $_POST["subject"];
+  $message = $_POST["message"];
 
+  require "vendor/autoload.php"
+  ?><br>
 </body>
 </html>
