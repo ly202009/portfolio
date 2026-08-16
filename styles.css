@@ -160,7 +160,7 @@ body *{
   flex-direction: column;
   gap: 5%;
   min-width: 200px;
-  flex: 1 1 25%;
+  flex: 1 1 33%;
 }
 
 .project-header{
@@ -169,9 +169,12 @@ body *{
 
 .project img{
   aspect-ratio: 16/9;
-  width: 100%;
+  min-width: 350px;
+  flex: 1 1 33%;
   border: 1px solid grey;
   object-fit: cover;
+  border-radius: 10px;
+  display: block
 }
 
 .contact{
