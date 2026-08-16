@@ -66,6 +66,9 @@ body *{
 
     .menu-button {
         display: block;
+        background-color: white;
+        border: none;
+        font-size: 20px;
     }
 }
 
@@ -150,7 +153,6 @@ body *{
 
 .project-section-header{
   font-size: 30px;
-  margin-bottom: 40px;
   text-decoration: underline;
 }
 
@@ -169,7 +171,7 @@ body *{
 
 .project img{
   aspect-ratio: 16/9;
-  min-width: 350px;
+  min-width: 200px;
   flex: 1 1 33%;
   border: 1px solid grey;
   object-fit: cover;
@@ -179,9 +181,9 @@ body *{
 
 .contact{
   justify-self: center;
-  margin-top: 10%;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-top: 15vh;
+  margin-left: 10%;
+  margin-right: 10%;
   padding: 2%;
   border-radius: 5px;
   background-color: lightgrey;
@@ -218,6 +220,7 @@ body *{
 }
 
 footer{
+  margin-top: 5vh;
   text-align: center;
   font-size: small;
   color: grey;
