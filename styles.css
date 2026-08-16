@@ -33,15 +33,16 @@ body *{
   position: sticky;
   top: 0px;
   z-index: 1000;
-  background-color: white;
+  background-image: linear-gradient(to bottom, white, rgba(255,255,255,0));
+  padding: 10px 10% 10px 10%;
+  display: flex;
+  align-items: center;
 }
 
 .nav-options{
   display:flex;
-  list-style-type:none;
   justify-content: right;
   gap: 30px;
-  padding: 10px 10% 10px 10%;
 }
 
 .navigation-bar a{
