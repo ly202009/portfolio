@@ -69,6 +69,12 @@ body *{
         background-color: white;
         border: none;
         font-size: 20px;
+        border-radius: 1000px;
+        text-align: center;
+    }
+
+    .menu-button:hover{
+      background-color: lightgrey;
     }
 }
 
