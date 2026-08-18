@@ -7,7 +7,7 @@ body{
 body *{
   font-family: 'Courier New', Courier, monospace;
   margin: 0px;
-  font-size: large;
+  font-size: 18px;
 }
 
 .hero{
@@ -37,44 +37,27 @@ body *{
   padding: 10px 10% 10px 10%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 5vw;
 }
 
-.nav-options{
-  display:flex;
-  justify-content: right;
-  gap: 30px;
+.nav-hero{
+  margin-right: auto;
 }
 
 .navigation-bar a{
   text-decoration: none;
+  text-align: center;
   font-weight: bold;
 }
 
-
-.nav-hero{
-  margin-right:auto;
-}
-
-.menu-button{
-  display: none;
-}
-
 @media (max-width: 700px) {
-    .nav-options {
-        display: none;
+    .navigation-bar a{
+      font-size: 15px;
     }
 
-    .menu-button {
-        display: block;
-        background-color: white;
-        border: none;
-        font-size: 20px;
-        border-radius: 1000px;
-        text-align: center;
-    }
-
-    .menu-button:hover{
-      background-color: lightgrey;
+    .nav-hero{
+      margin-right: 0;
     }
 }
 
