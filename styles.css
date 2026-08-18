@@ -1,3 +1,7 @@
+html {
+  font-size: 16px;
+}
+
 body{
   display:flex;
   flex-direction: column;
@@ -7,7 +11,7 @@ body{
 body *{
   font-family: 'Courier New', Courier, monospace;
   margin: 0px;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 .hero{
@@ -19,12 +23,12 @@ body *{
 }
 
 .hero-text{
-  font-size: 70px;
+  font-size: 4rem;
   text-align: center;
 }
 
 .hero-description{
-  font-size: 70px;
+  font-size: 4rem;
   text-align: center;
 }
 
@@ -59,7 +63,7 @@ body *{
 
 @media (max-width: 500px){
   .navigation-bar a{
-      font-size: 15px;
+      font-size: 0.9rem;
   }
 }
 
@@ -71,7 +75,7 @@ body *{
 }
 
 .about-header{
-  font-size: 30px;
+  font-size: 2rem;
   margin-bottom: 20px;
   text-decoration: underline;
 }
@@ -143,7 +147,7 @@ body *{
 }
 
 .project-section-header{
-  font-size: 30px;
+  font-size: 2rem;
   text-decoration: underline;
 }
 
@@ -181,7 +185,7 @@ body *{
 }
 
 .contact-header{
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -191,7 +195,7 @@ body *{
 }
 
 .contact form > *{
-  font-size: auto;
+  font-size: 1rem;
   margin-top: 1%;
   border: none;
   border-radius: 5px;
@@ -213,6 +217,6 @@ body *{
 footer{
   margin-top: 5vh;
   text-align: center;
-  font-size: small;
+  font-size: 0.7rem;
   color: grey;
 }
