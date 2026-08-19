@@ -1,7 +1,12 @@
 
 <?php
-$ENV = parse_ini_file(".env");
+$ENV;
 
+try{
+  $ENV = parse_ini_file(".env");
+}catch(Exception $e){
+  echo "".$e->getMessage()."";
+}
 $name = $_POST["name"];
 $email = $_POST["email"];
 $subject = $_POST["subject"];
