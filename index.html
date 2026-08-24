@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LiwenYao</title>
     <script src="spinning-icons.js" defer></script>
-    <script src="hamburger-menu.js" defer></script>
+    <script src="contact-form.js" defer></script>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
@@ -46,7 +46,7 @@
                 <div class="project-body">A personal portfolio website made with JS, HTML, and CSS. <br><br>
                     Made for practicing web design as well as practical reasons.</div>
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/ly202009/portfolio">Github Repository</a>
-                <a target="_blank" rel="noopener noreferrer" href="liwenyao.ca">Live Demo</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://liwenyao.ca">Live Demo</a>
                 <!-- Maybe add tags for tools + languages used and a better links system (ref to other websites) -->
             </div>
             <img src="https://raw.githubusercontent.com/ly202009/portfolio/079b6603e5388227443f7cec65cf2ebbe600684c/assets/portfolio.gif">
@@ -76,7 +76,7 @@
     
     <div id="contact" class="contact">
         <div class="contact-header">Contact</div>
-        <form action="contact-form-handler.php" method="post">
+        <form id="contactForm">
             Name: <input type="text" id="name" name="name" placeholder="Name"><br>
             Email: <input type="text" id="email" name="email" placeholder="Email"><br>
             Message: <input type="text" id="subject" name="subject" placeholder="Subject"><br>
@@ -85,6 +85,7 @@
             <input type="submit" value="Submit">
 
         </form>
+        <div id="status"></div>
     </div>
     <footer>LiwenYao.ca™ Designed by me</footer>
 </body>
