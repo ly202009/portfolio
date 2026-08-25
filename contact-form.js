@@ -30,6 +30,18 @@ document.getElementById("contactForm").addEventListener("submit", async function
     return;
   }
 
+  // const token = await grecaptcha.enterprise.execute('6LeE2I4tAAAAAK40Oz_3iCae-tKrHBPRyIWOqjVz', {action: 'LOGIN'});
+
+  // const recaptcha_response = await fetch("recaptcha.php", {
+  //     method: "POST",
+  //     headers: {"Content-Type": "application/json"},
+  //     body: JSON.stringify({token: token}),
+  // });
+
+  // if(!recaptcha_response.ok){
+  //   throw new Error("Recaptcha error");
+  // }
+
 
   try{
     const response = await fetch("contact-form-handler.php", {

@@ -1,20 +1,41 @@
 <?php
-$ENV;
-
-try{
-  $ENV = parse_ini_file(".env");
-}catch(Exception $e){
-  echo "".$e->getMessage()."";
-  exit(1);
-}
-$name = $_POST["name"];
-$email = $_POST["email"];
-$subject = $_POST["subject"];
-$message = $_POST["message"];
 require "vendor/autoload.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
+
+// Revalidate inputs server-side
+if(trim($_POST["name"]) === ""){ // Name is empty
+  exit(1);
+}
+
+if(!preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/", trim($_POST["email"]))){ // Email does not fit regex expectations for a normal email address
+  exit(1);
+}
+if(trim($_POST["subject"]) === ""){ // Subject is not included
+  exit(1);
+}
+
+if(trim($_POST["message"]) === ""){ // Message is not included
+  exit(1);
+}
+
+
+
+$ENV;
+
+try{
+  $ENV = parse_ini_file("./secrets/.env");
+}catch(Exception $e){
+  echo "".$e->getMessage()."";
+  exit(1);
+}
+
+$name = $_POST["name"];
+$email = $_POST["email"];
+$subject = $_POST["subject"];
+$message = $_POST["message"];
+
 
 $mail = new PHPMailer(true);
 
