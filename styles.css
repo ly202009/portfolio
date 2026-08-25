@@ -202,22 +202,20 @@ body *{
   padding: 5px;
 }
 
-.contact input[type=submit]{
+.contact button[type=submit]{
   background-color: green;
   color: white;
   font-weight: bolder;
   padding: 10px;
-  align-self: end;
   text-align: center;
-  width: 100px;
   border-radius: 10px;
-  text-size-adjust: auto;
 }
 
 #status{
   font-size:large;
   color:green;
   font-weight: bold;
+  padding-top: 10px;
 }
 
 footer{
