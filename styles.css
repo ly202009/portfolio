@@ -209,6 +209,12 @@ body *{
   padding: 10px;
   text-align: center;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.contact button[type=submit]:hover{
+  background-color: darkgreen;
+
 }
 
 #status{
