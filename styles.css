@@ -9,7 +9,7 @@ body{
 }
 
 body *{
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Geist Mono', 'Google Sans', 'Courier New', Courier, monospace;
   margin: 0px;
   font-size: 1rem;
 }
@@ -89,6 +89,8 @@ body *{
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  
+  line-height: 1.5rem;
 }
 
 .about-body{
@@ -158,6 +160,8 @@ body *{
   gap: 5%;
   min-width: 200px;
   flex: 1 1 33%;
+  
+  line-height: 1.5rem;
 }
 
 .project-header{
@@ -199,7 +203,7 @@ body *{
   margin-top: 1%;
   border: none;
   border-radius: 5px;
-  padding: 5px;
+  padding: 0.5rem;
 }
 
 .contact button[type=submit]{
