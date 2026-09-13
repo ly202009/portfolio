@@ -1,4 +1,6 @@
 <?php
+require __DIR__."/../vendor/autoload.php";
+
 header("Content-Type: application/json");
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
@@ -12,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit;
 }
 
-require "vendor/autoload.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -107,7 +108,7 @@ if (count($attempts) >= $limit) {
         "message" => "Too many submissions. Try again later."
     ]);
 
-    exit(0);
+    exit;
 }
 
 // ---------------- Messaging system ------------
@@ -115,10 +116,12 @@ if (count($attempts) >= $limit) {
 $ENV;
 
 try{
-  $ENV = parse_ini_file("./secrets/.env");
+  $ENV = parse_ini_file(__DIR__."/../secrets/.env");
 }catch(Exception $e){
-  echo "".$e->getMessage()."";
-  exit(1);
+  echo json_encode([
+    "success" => false,
+    "message" => "Failed to parse ENV file."
+  ]);
 }
 
 $name = $_POST["name"];
@@ -154,7 +157,7 @@ $mail->setFrom($ENV["SMTP_USERNAME"], "LiwenYao.ca Contact Form");
 
 $mail->addAddress($email, $name);
 
-$mail->Subject = "LiwenYao.ca Contact Form: $subject";
+$mail->Subject = "LiwenYao.ca Form Receipt: $subject";
 $mail->Body = "Thanks for reaching out! Here's a receipt:
 
 Subject: $subject
@@ -211,6 +214,12 @@ file_put_contents(
     json_encode(array_values($attempts))
 );
 
+// Send success message
+http_response_code(200);
 
-
+echo json_encode([
+  "success" => true,
+  "message" => "Message sent!"
+]);
+exit(0)
 ?>

@@ -30,30 +30,30 @@ document.getElementById("contactForm").addEventListener("submit", async function
     return;
   }
 
-  try{
-    const response = await fetch("/api/contact.php", {
-      method: "POST",
-      body: formData
-    });
 
-    if(!response.ok){
-      throw new Error("Server error");
-    }
+  const response = await fetch("/api/contact.php", {
+    method: "POST",
+    body: formData
+  });
 
-    const result = await response.text();
+  const result = await response.json();
 
-    status.style.color = "green";
-    status.textContent = "Message sent!";
+  console.log("Status:", response.status);
+  console.log("Response:", result);
 
-    // Clear original message (but keep name and email)
-    let name = formData.get("name");
-    let email = formData.get("email");
-    form.reset();
-    document.getElementById("name").value = name;
-    document.getElementById("email").value = email;
-  }catch (error){
-    status.style.color = "red";
-    status.textContent = "Something went wrong.";
-    console.error(error);
+  if(!response.ok || !result.success){
+    throw new Error(result.message);
   }
+
+
+  status.style.color = "green";
+  status.textContent = "Message sent!";
+
+  // Clear original message (but keep name and email)
+  let name = formData.get("name");
+  let email = formData.get("email");
+  form.reset();
+  document.getElementById("name").value = name;
+  document.getElementById("email").value = email;
+
 });
