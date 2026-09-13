@@ -38,10 +38,8 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
   const result = await response.json();
 
-  console.log("Status:", response.status);
-  console.log("Response:", result);
-
   if(!response.ok || !result.success){
+    status.innerHTML = result.message;
     throw new Error(result.message);
   }
 

@@ -105,7 +105,7 @@ if (count($attempts) >= $limit) {
 
     echo json_encode([
         "success" => false,
-        "message" => "Too many submissions. Try again later."
+        "message" => "Too many submissions. Try again later. $attempts[0], $rateLimitFile, $__DIR__"
     ]);
 
     exit;
@@ -122,6 +122,7 @@ try{
     "success" => false,
     "message" => "Failed to parse ENV file."
   ]);
+  exit;
 }
 
 $name = $_POST["name"];
@@ -155,7 +156,17 @@ $mail->setFrom($ENV["SMTP_USERNAME"], "LiwenYao.ca Contact Form");
 // Send confirmation email (confirm email given exists)
 // -----------------
 
-$mail->addAddress($email, $name);
+try{
+  $mail->addAddress($email, $name);
+}catch(Exception $e){
+  http_response_code(500);
+
+  echo json_encode([
+    "success" => false,
+    "message" => "Email address does not exist."
+  ]);
+  exit;
+}
 
 $mail->Subject = "LiwenYao.ca Form Receipt: $subject";
 $mail->Body = "Thanks for reaching out! Here's a receipt:
@@ -174,6 +185,7 @@ try{
     "success" => false,
     "message" => "Failed to send confirmation email."
   ]);
+  exit;
 }
 
 // -----------------
@@ -199,8 +211,9 @@ try{
 
   echo json_encode([
     "success" => false,
-    "message" => "Failed to send message to Liwen's email."
+    "message" => "Failed to send message to Liwen's email. You can email me directly at liwen.y37@gmail.com"
   ]);
+  exit;
 }
 
 // ------- Update IP info (assuming mailing worked completely) -------------
@@ -221,5 +234,5 @@ echo json_encode([
   "success" => true,
   "message" => "Message sent!"
 ]);
-exit(0)
+exit(0);
 ?>
