@@ -40,7 +40,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
   if(!response.ok || !result.success){
     status.innerHTML = result.message;
-    throw new Error(result.message);
+    return;
   }
 
 

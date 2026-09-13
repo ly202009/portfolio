@@ -105,7 +105,7 @@ if (count($attempts) >= $limit) {
 
     echo json_encode([
         "success" => false,
-        "message" => "Too many submissions. Try again later. $attempts[0], $rateLimitFile, $__DIR__"
+        "message" => "Too many submissions. Try again later."
     ]);
 
     exit;
@@ -156,18 +156,6 @@ $mail->setFrom($ENV["SMTP_USERNAME"], "LiwenYao.ca Contact Form");
 // Send confirmation email (confirm email given exists)
 // -----------------
 
-try{
-  $mail->addAddress($email, $name);
-}catch(Exception $e){
-  http_response_code(500);
-
-  echo json_encode([
-    "success" => false,
-    "message" => "Email address does not exist."
-  ]);
-  exit;
-}
-
 $mail->Subject = "LiwenYao.ca Form Receipt: $subject";
 $mail->Body = "Thanks for reaching out! Here's a receipt:
 
@@ -177,6 +165,7 @@ Your Message:
 $message";
 
 try{
+  $mail->addAddress($email, $name);
   $mail->send();
 }catch(Exception $e){
   http_response_code(500);
