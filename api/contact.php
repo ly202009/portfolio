@@ -1,4 +1,17 @@
 <?php
+header("Content-Type: application/json");
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    http_response_code(405);
+
+    echo json_encode([
+        "success" => false,
+        "message" => "Method not allowed."
+    ]);
+
+    exit;
+}
+
 require "vendor/autoload.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -6,23 +19,58 @@ use PHPMailer\PHPMailer\SMTP;
 
 // Check "honeypot" (imo a dumb name and I don't think it's thoroughly effective but oh well better than nothing)
 if(!empty($_POST["website"]) || !isset($_POST["website"])){
-  exit(0);
+  http_response_code(400);
+
+  echo json_encode([
+    "success" => false,
+    "message" => ""
+  ]);
+
+  exit;
 }
 
 // Revalidate inputs server-side
 if(empty(trim($_POST["name"])) || !isset($_POST["name"])){ // Name is empty
-  exit(0);
+  http_response_code(400);
+
+  echo json_encode([
+    "success" => false,
+    "message" => "Invalid name."
+  ]);
+
+  exit;
 }
 
 if(!preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/", trim($_POST["email"])) || !isset($_POST["email"])){ // Email does not fit regex expectations for a normal email address
-  exit(0);
+  http_response_code(400);
+
+  echo json_encode([
+    "success" => false,
+    "message" => "Invalid email."
+  ]);
+
+  exit;
 }
 if(empty(trim($_POST["subject"])) || !isset($_POST["subject"])){ // Subject is not included
-  exit(0);
+  http_response_code(400);
+
+  echo json_encode([
+    "success" => false,
+    "message" => "Invalid subject."
+  ]);
+
+  exit;
 }
 
 if(empty(trim($_POST["message"])) || !isset($_POST["message"])){ // Message is not included
-  exit(0);
+  http_response_code(400);
+
+  echo json_encode([
+    "success" => false,
+    "message" => "Invalid message."
+  ]);
+
+  exit;
 }
 
 // ----------- IP limiter -----------------
@@ -101,31 +149,8 @@ $mail->Password = $ENV["SMTP_PASSWORD"];
 $mail->setFrom($ENV["SMTP_USERNAME"], "LiwenYao.ca Contact Form");
 
 // -----------------
-// Email to me
+// Send confirmation email (confirm email given exists)
 // -----------------
-
-$mail->addReplyTo($email, $name);
-$mail->addAddress("liwen.y37@gmail.com");
-
-$mail->Subject = $subject;
-$mail->Body = "Name: $name
-Email: $email
-
-Message:
-$message";
-
-try{
-  $mail->send();
-}catch(Exception $e){
-  echo "". $e->getMessage();
-  exit(1);
-}
-
-// -----------------
-// Send confirmation mail
-// -----------------
-$mail->clearAddresses();
-$mail->clearReplyTos();
 
 $mail->addAddress($email, $name);
 
@@ -140,7 +165,39 @@ $message";
 try{
   $mail->send();
 }catch(Exception $e){
-  echo "". $e->getMessage();
+  http_response_code(500);
+
+  echo json_encode([
+    "success" => false,
+    "message" => "Failed to send confirmation email."
+  ]);
+}
+
+// -----------------
+// Send copy of email to me
+// -----------------
+// Clear previous email
+$mail->clearAddresses();
+
+$mail->addReplyTo($email, $name);
+$mail->addAddress("liwen.y37@gmail.com");
+
+$mail->Subject = $subject;
+$mail->Body = "Name: $name
+Email: $email
+
+Message:
+$message";
+
+try{
+  $mail->send();
+}catch(Exception $e){
+  http_response_code(500);
+
+  echo json_encode([
+    "success" => false,
+    "message" => "Failed to send message to Liwen's email."
+  ]);
 }
 
 // ------- Update IP info (assuming mailing worked completely) -------------
