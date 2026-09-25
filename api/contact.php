@@ -81,7 +81,7 @@ $rateLimitFile = __DIR__."/rate_limits/".hash("sha256", $ip).".txt"; // Create n
 
 // Set user info
 $now = time();
-$limit = 3;
+$limit = 300;
 $window = 600; // 10 minutes
 
 if (!is_dir(__DIR__."/rate_limits")) { // If rate_limits folder does not exist then create folder
